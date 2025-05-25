@@ -154,10 +154,9 @@ def evaluate_model(model, test_loader):
         test_acc = 100*correct/total
     return test_loss, test_acc
 
-def save_model(model, file_path='models/cnn_model.pth'):
+def save_model(model, file_path='models/cnn_model_state_dict.pth'):
     """
     Saves the trained model to a file."""
     torch.save(model.state_dict(), file_path)
     print(f"Model saved to {file_path}")
 
-build_model()
