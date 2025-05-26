@@ -5,11 +5,12 @@ import torch.optim as optim
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, TensorDataset
 from preparation import prepare_data
+from config import settings
 
 def build_model():
     # Prepare the data
-    train_data = prepare_data('sign_mnist_train.csv')
-    test_data = prepare_data('sign_mnist_test.csv')
+    train_data = prepare_data(settings.train_data_path)
+    test_data = prepare_data(settings.test_data_path)
 
     # Split the training data into training and validation sets
     X_train, X_valid, y_train, y_valid = split_data(train_data[0], train_data[1])
@@ -154,7 +155,7 @@ def evaluate_model(model, test_loader):
         test_acc = 100*correct/total
     return test_loss, test_acc
 
-def save_model(model, file_path='models/cnn_model_state_dict.pth'):
+def save_model(model, file_path=f'{settings.model_save_path}/{settings.model_name}'):
     """
     Saves the trained model to a file."""
     torch.save(model.state_dict(), file_path)

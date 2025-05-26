@@ -1,13 +1,14 @@
 from pathlib import Path
 import torch
 from model import build_model, CNNModel
+from config import settings
 
 class ModelService:
     def __init__(self):
         self.model = CNNModel()
 
-    def load_model(self, model_name='cnn_model_state_dict.pth'):
-        model_path = Path(f"models/{model_name}")
+    def load_model(self, model_name=settings.model_name):
+        model_path = Path(f"{settings.model_save_path}/{model_name}")
 
         if not model_path.exists():
             build_model()
