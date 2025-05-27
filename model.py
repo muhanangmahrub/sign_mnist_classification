@@ -6,8 +6,10 @@ from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, TensorDataset
 from preparation import prepare_data
 from config import settings
+from loguru import logger
 
 def build_model():
+    logger.info("Building the CNN model")
     # Prepare the data
     train_data = prepare_data(settings.train_data_path)
     test_data = prepare_data(settings.test_data_path)
@@ -26,8 +28,7 @@ def build_model():
 
     # Evaluate the model on the test set
     eval_loss, eval_acc = evaluate_model(model, test_loader)
-    print(f"Test Loss: {eval_loss:.4f}, Test Accuracy: {eval_acc:.2f}%")
-    
+
     # Save the model
     save_model(model)
 
@@ -57,12 +58,14 @@ class CNNModel(nn.Module):
 def split_data(X, y, train_size=0.8):
     """
     Splits the data into training and validation sets."""
+    logger.info("Splitting data into training and validation sets")
     X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=train_size, random_state=12345)
     return X_train, X_test, y_train, y_test
 
 def create_dataloader(X, y, batch_size=512):
     """
     Creates a DataLoader for the given data."""
+    logger.info("Creating DataLoader for the data")
     if torch.cuda.is_available():
         X = X.to('cuda')
         y = y.to('cuda')
@@ -76,6 +79,7 @@ def create_dataloader(X, y, batch_size=512):
 def train_model(train_loader, valid_loader, epochs=10, learning_rate=0.005):
     """
     Trains the CNN model on the training data and validates it on the validation data."""
+    logger.info("Starting model training")
     model = CNNModel()
     model = model.to('cuda' if torch.cuda.is_available() else 'mps')
     criterion = nn.CrossEntropyLoss()
@@ -107,6 +111,7 @@ def train_model(train_loader, valid_loader, epochs=10, learning_rate=0.005):
 
         train_loss = running_loss/len(train_loader)
         train_acc = 100 * correct/total
+        logger.info(f"Epoch [{epoch+1}/{epochs}], Train Loss: {train_loss:.4f}, Train Accuracy: {train_acc:.2f}%")
 
         model.eval()
         val_loss = 0
@@ -125,16 +130,19 @@ def train_model(train_loader, valid_loader, epochs=10, learning_rate=0.005):
 
         val_loss = val_loss/len(valid_loader)
         val_acc = 100*correct/total
+        logger.info(f"Epoch [{epoch+1}/{epochs}], Val Loss: {val_loss:.4f}, Val Accuracy: {val_acc:.2f}%")
 
         history['train_loss'].append(train_loss)
         history['val_loss'].append(val_loss)
         history['train_acc'].append(train_acc)
         history['val_acc'].append(val_acc)
+    logger.info("Model training completed")
     return model
 
 def evaluate_model(model, test_loader):
     """
     Evaluates the trained model on the test data."""
+    logger.info("Evaluating model on test data")
     criterion = nn.CrossEntropyLoss()
     with torch.no_grad():
         model.eval()
@@ -153,11 +161,12 @@ def evaluate_model(model, test_loader):
                 correct += (predicted == labels).sum().item()
         test_loss = test_loss/len(test_loader)
         test_acc = 100*correct/total
+        logger.info(f"Test Loss: {test_loss:.4f}, Test Accuracy: {test_acc:.2f}%")
     return test_loss, test_acc
 
 def save_model(model, file_path=f'{settings.model_save_path}/{settings.model_name}'):
     """
     Saves the trained model to a file."""
+    logger.info(f"Saving model to {file_path}")
     torch.save(model.state_dict(), file_path)
-    print(f"Model saved to {file_path}")
 
