@@ -2,7 +2,10 @@ from pydantic import DirectoryPath, FilePath
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from loguru import logger
 
+
 class Settings(BaseSettings):
+    """Configuration settings for the application."""
+
     model_config = SettingsConfigDict(
         env_file='.env',
         env_file_encoding='utf-8'
@@ -14,8 +17,8 @@ class Settings(BaseSettings):
     model_name: str
     log_level: str
 
-settings = Settings()
 
+settings = Settings()
 logger.remove()
 logger.add(
     "app.log",

@@ -85,3 +85,8 @@
 2025-05-27 09:54:20.035 | INFO     | model_service:load_model:20 - Model file found at models/cnn_model_state_dict.pth. Loading model.
 2025-05-27 09:54:20.079 | INFO     | model_service:predict:24 - Starting prediction
 2025-05-27 09:54:20.250 | INFO     | __main__:main:15 - Prediction result: [15]
+2025-05-27 17:27:09.832 | INFO     | __main__:main:10 - Starting the model service
+2025-05-27 17:27:09.838 | INFO     | model_service:load_model:25 - Loading model: cnn_model_state_dict.pth
+2025-05-27 17:27:09.839 | INFO     | model_service:load_model:34 - Model file found at models/cnn_model_state_dict.pth. Loading model.
+2025-05-27 17:27:09.898 | INFO     | model_service:predict:45 - Starting prediction
+2025-05-27 17:27:10.069 | INFO     | __main__:main:92 - Prediction result: [15]
