@@ -1,6 +1,7 @@
 from pydantic import DirectoryPath, FilePath
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from loguru import logger
+from sqlalchemy import create_engine
 
 
 class Settings(BaseSettings):
@@ -16,6 +17,9 @@ class Settings(BaseSettings):
     model_save_path: DirectoryPath
     model_name: str
     log_level: str
+    db_conn_str: str
+    train_table_name: str
+    test_table_name: str
 
 
 settings = Settings()
@@ -27,3 +31,5 @@ logger.add(
     compression="zip",
     level=settings.log_level
 )
+
+engine = create_engine(settings.db_conn_str)

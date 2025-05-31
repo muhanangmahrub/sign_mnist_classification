@@ -1,13 +1,13 @@
 import pandas as pd
 import torch
 import numpy as np
-from collection import load_data
+from collection import load_data_from_db
 from loguru import logger
 
 
-def prepare_data(file_path: str):
-    logger.info(f"Preparing data from {file_path}")
-    data = load_data(file_path)
+def prepare_data(schema):
+    logger.info(f"Preparing data from {schema.__tablename__}")
+    data = load_data_from_db(schema)
     data = convert_array(data)
     X, y = split_labels(data)
     X = reshape_data(X)
