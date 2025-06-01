@@ -1,0 +1,77 @@
+2025-06-01 09:35:06.569 | INFO     | __main__:main:10 - Starting the model service
+2025-06-01 09:35:06.576 | INFO     | model.model_service:load_model:25 - Loading model: cnn_model_state_dict.pth
+2025-06-01 09:35:06.576 | WARNING  | model.model_service:load_model:29 - Model file model/models/cnn_model_state_dict.pth does not exist.                            Building a new model.
+2025-06-01 09:35:06.576 | INFO     | model.pipeline.model:build_model:20 - Building the CNN model
+2025-06-01 09:35:06.576 | INFO     | model.pipeline.preparation:prepare_data:9 - Preparing data from sign_mnist_train
+2025-06-01 09:35:06.576 | INFO     | model.pipeline.collection:load_data_from_db:23 - Loading data from database
+2025-06-01 09:35:11.044 | INFO     | model.pipeline.preparation:convert_array:26 - Converting DataFrame to numpy array
+2025-06-01 09:35:11.068 | INFO     | model.pipeline.preparation:split_labels:19 - Splitting labels from data
+2025-06-01 09:35:11.076 | INFO     | model.pipeline.preparation:reshape_data:32 - Reshaping data to fit model input
+2025-06-01 09:35:11.076 | INFO     | model.pipeline.preparation:convert_torch:38 - Converting data to PyTorch tensors
+2025-06-01 09:35:11.077 | INFO     | model.pipeline.preparation:prepare_data:9 - Preparing data from sign_mnist_test
+2025-06-01 09:35:11.077 | INFO     | model.pipeline.collection:load_data_from_db:23 - Loading data from database
+2025-06-01 09:35:12.275 | INFO     | model.pipeline.preparation:convert_array:26 - Converting DataFrame to numpy array
+2025-06-01 09:35:12.280 | INFO     | model.pipeline.preparation:split_labels:19 - Splitting labels from data
+2025-06-01 09:35:12.282 | INFO     | model.pipeline.preparation:reshape_data:32 - Reshaping data to fit model input
+2025-06-01 09:35:12.282 | INFO     | model.pipeline.preparation:convert_torch:38 - Converting data to PyTorch tensors
+2025-06-01 09:35:12.282 | INFO     | model.pipeline.model:split_data:75 - Splitting data into training and validation sets
+2025-06-01 09:35:12.350 | INFO     | model.pipeline.model:create_dataloader:86 - Creating DataLoader for the data
+2025-06-01 09:35:12.520 | INFO     | model.pipeline.model:create_dataloader:86 - Creating DataLoader for the data
+2025-06-01 09:35:12.525 | INFO     | model.pipeline.model:create_dataloader:86 - Creating DataLoader for the data
+2025-06-01 09:35:12.530 | INFO     | model.pipeline.model:train_model:103 - Starting model training
+2025-06-01 09:35:25.065 | INFO     | model.pipeline.model:train_model:135 - Epoch [1/25],                    Train Loss: 3.1884,                    Train Accuracy: 7.70%
+2025-06-01 09:35:25.510 | INFO     | model.pipeline.model:train_model:156 - Epoch [1/25], Val Loss: 3.1360,                    Val Accuracy: 17.05%
+2025-06-01 09:35:36.569 | INFO     | model.pipeline.model:train_model:135 - Epoch [2/25],                    Train Loss: 2.9879,                    Train Accuracy: 24.24%
+2025-06-01 09:35:37.024 | INFO     | model.pipeline.model:train_model:156 - Epoch [2/25], Val Loss: 2.8591,                    Val Accuracy: 33.24%
+2025-06-01 09:35:48.194 | INFO     | model.pipeline.model:train_model:135 - Epoch [3/25],                    Train Loss: 2.7725,                    Train Accuracy: 37.64%
+2025-06-01 09:35:48.663 | INFO     | model.pipeline.model:train_model:156 - Epoch [3/25], Val Loss: 2.7116,                    Val Accuracy: 47.15%
+2025-06-01 09:35:59.682 | INFO     | model.pipeline.model:train_model:135 - Epoch [4/25],                    Train Loss: 2.6748,                    Train Accuracy: 46.59%
+2025-06-01 09:36:00.104 | INFO     | model.pipeline.model:train_model:156 - Epoch [4/25], Val Loss: 2.6383,                    Val Accuracy: 50.97%
+2025-06-01 09:36:11.423 | INFO     | model.pipeline.model:train_model:135 - Epoch [5/25],                    Train Loss: 2.6204,                    Train Accuracy: 52.74%
+2025-06-01 09:36:11.889 | INFO     | model.pipeline.model:train_model:156 - Epoch [5/25], Val Loss: 2.5956,                    Val Accuracy: 58.00%
+2025-06-01 09:36:22.929 | INFO     | model.pipeline.model:train_model:135 - Epoch [6/25],                    Train Loss: 2.5827,                    Train Accuracy: 57.35%
+2025-06-01 09:36:23.369 | INFO     | model.pipeline.model:train_model:156 - Epoch [6/25], Val Loss: 2.5635,                    Val Accuracy: 62.28%
+2025-06-01 09:36:34.416 | INFO     | model.pipeline.model:train_model:135 - Epoch [7/25],                    Train Loss: 2.5549,                    Train Accuracy: 62.16%
+2025-06-01 09:36:34.881 | INFO     | model.pipeline.model:train_model:156 - Epoch [7/25], Val Loss: 2.5441,                    Val Accuracy: 63.92%
+2025-06-01 09:36:46.018 | INFO     | model.pipeline.model:train_model:135 - Epoch [8/25],                    Train Loss: 2.5374,                    Train Accuracy: 64.34%
+2025-06-01 09:36:46.473 | INFO     | model.pipeline.model:train_model:156 - Epoch [8/25], Val Loss: 2.5245,                    Val Accuracy: 66.89%
+2025-06-01 09:36:57.523 | INFO     | model.pipeline.model:train_model:135 - Epoch [9/25],                    Train Loss: 2.5195,                    Train Accuracy: 66.89%
+2025-06-01 09:36:57.992 | INFO     | model.pipeline.model:train_model:156 - Epoch [9/25], Val Loss: 2.5126,                    Val Accuracy: 68.42%
+2025-06-01 09:37:09.048 | INFO     | model.pipeline.model:train_model:135 - Epoch [10/25],                    Train Loss: 2.5039,                    Train Accuracy: 69.39%
+2025-06-01 09:37:09.523 | INFO     | model.pipeline.model:train_model:156 - Epoch [10/25], Val Loss: 2.4862,                    Val Accuracy: 71.79%
+2025-06-01 09:37:20.632 | INFO     | model.pipeline.model:train_model:135 - Epoch [11/25],                    Train Loss: 2.4862,                    Train Accuracy: 71.23%
+2025-06-01 09:37:21.101 | INFO     | model.pipeline.model:train_model:156 - Epoch [11/25], Val Loss: 2.4700,                    Val Accuracy: 71.94%
+2025-06-01 09:37:32.187 | INFO     | model.pipeline.model:train_model:135 - Epoch [12/25],                    Train Loss: 2.4753,                    Train Accuracy: 72.68%
+2025-06-01 09:37:32.659 | INFO     | model.pipeline.model:train_model:156 - Epoch [12/25], Val Loss: 2.4606,                    Val Accuracy: 76.38%
+2025-06-01 09:37:43.689 | INFO     | model.pipeline.model:train_model:135 - Epoch [13/25],                    Train Loss: 2.4694,                    Train Accuracy: 74.36%
+2025-06-01 09:37:44.120 | INFO     | model.pipeline.model:train_model:156 - Epoch [13/25], Val Loss: 2.4555,                    Val Accuracy: 76.47%
+2025-06-01 09:37:55.182 | INFO     | model.pipeline.model:train_model:135 - Epoch [14/25],                    Train Loss: 2.4538,                    Train Accuracy: 75.89%
+2025-06-01 09:37:55.656 | INFO     | model.pipeline.model:train_model:156 - Epoch [14/25], Val Loss: 2.4483,                    Val Accuracy: 78.04%
+2025-06-01 09:38:06.750 | INFO     | model.pipeline.model:train_model:135 - Epoch [15/25],                    Train Loss: 2.4530,                    Train Accuracy: 77.27%
+2025-06-01 09:38:07.187 | INFO     | model.pipeline.model:train_model:156 - Epoch [15/25], Val Loss: 2.4373,                    Val Accuracy: 79.75%
+2025-06-01 09:38:18.387 | INFO     | model.pipeline.model:train_model:135 - Epoch [16/25],                    Train Loss: 2.4447,                    Train Accuracy: 78.88%
+2025-06-01 09:38:18.851 | INFO     | model.pipeline.model:train_model:156 - Epoch [16/25], Val Loss: 2.4312,                    Val Accuracy: 82.21%
+2025-06-01 09:38:29.865 | INFO     | model.pipeline.model:train_model:135 - Epoch [17/25],                    Train Loss: 2.4406,                    Train Accuracy: 80.69%
+2025-06-01 09:38:30.293 | INFO     | model.pipeline.model:train_model:156 - Epoch [17/25], Val Loss: 2.4299,                    Val Accuracy: 83.06%
+2025-06-01 09:38:41.471 | INFO     | model.pipeline.model:train_model:135 - Epoch [18/25],                    Train Loss: 2.4362,                    Train Accuracy: 81.31%
+2025-06-01 09:38:41.943 | INFO     | model.pipeline.model:train_model:156 - Epoch [18/25], Val Loss: 2.4254,                    Val Accuracy: 83.90%
+2025-06-01 09:38:52.963 | INFO     | model.pipeline.model:train_model:135 - Epoch [19/25],                    Train Loss: 2.4273,                    Train Accuracy: 82.38%
+2025-06-01 09:38:53.420 | INFO     | model.pipeline.model:train_model:156 - Epoch [19/25], Val Loss: 2.4144,                    Val Accuracy: 85.01%
+2025-06-01 09:39:04.454 | INFO     | model.pipeline.model:train_model:135 - Epoch [20/25],                    Train Loss: 2.4204,                    Train Accuracy: 83.19%
+2025-06-01 09:39:04.927 | INFO     | model.pipeline.model:train_model:156 - Epoch [20/25], Val Loss: 2.4145,                    Val Accuracy: 85.61%
+2025-06-01 09:39:15.949 | INFO     | model.pipeline.model:train_model:135 - Epoch [21/25],                    Train Loss: 2.4190,                    Train Accuracy: 83.74%
+2025-06-01 09:39:16.424 | INFO     | model.pipeline.model:train_model:156 - Epoch [21/25], Val Loss: 2.4100,                    Val Accuracy: 85.38%
+2025-06-01 09:39:27.440 | INFO     | model.pipeline.model:train_model:135 - Epoch [22/25],                    Train Loss: 2.4222,                    Train Accuracy: 84.22%
+2025-06-01 09:39:27.917 | INFO     | model.pipeline.model:train_model:156 - Epoch [22/25], Val Loss: 2.4130,                    Val Accuracy: 85.98%
+2025-06-01 09:39:38.959 | INFO     | model.pipeline.model:train_model:135 - Epoch [23/25],                    Train Loss: 2.4110,                    Train Accuracy: 85.24%
+2025-06-01 09:39:39.415 | INFO     | model.pipeline.model:train_model:156 - Epoch [23/25], Val Loss: 2.3986,                    Val Accuracy: 87.56%
+2025-06-01 09:39:50.563 | INFO     | model.pipeline.model:train_model:135 - Epoch [24/25],                    Train Loss: 2.4039,                    Train Accuracy: 85.85%
+2025-06-01 09:39:51.030 | INFO     | model.pipeline.model:train_model:156 - Epoch [24/25], Val Loss: 2.3925,                    Val Accuracy: 88.09%
+2025-06-01 09:40:02.388 | INFO     | model.pipeline.model:train_model:135 - Epoch [25/25],                    Train Loss: 2.4021,                    Train Accuracy: 86.50%
+2025-06-01 09:40:02.871 | INFO     | model.pipeline.model:train_model:156 - Epoch [25/25], Val Loss: 2.3997,                    Val Accuracy: 88.80%
+2025-06-01 09:40:02.871 | INFO     | model.pipeline.model:train_model:163 - Model training completed
+2025-06-01 09:40:02.872 | INFO     | model.pipeline.model:evaluate_model:171 - Evaluating model on test data
+2025-06-01 09:40:03.597 | INFO     | model.pipeline.model:evaluate_model:190 - Test Loss: 2.4592,                    Test Accuracy: 78.83%
+2025-06-01 09:40:03.597 | INFO     | model.pipeline.model:save_model:200 - Saving model to model/models/cnn_model_state_dict.pth
+2025-06-01 09:40:03.648 | INFO     | model.model_service:predict:45 - Starting prediction
+2025-06-01 09:40:03.695 | INFO     | __main__:main:92 - Prediction result: [15]

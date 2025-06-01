@@ -1,7 +1,7 @@
 import pandas as pd
 import torch
 import numpy as np
-from collection import load_data_from_db
+from model.pipeline.collection import load_data_from_db
 from loguru import logger
 
 

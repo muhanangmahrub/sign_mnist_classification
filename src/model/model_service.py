@@ -1,7 +1,7 @@
 import torch
 from pathlib import Path
-from model import build_model, CNNModel
-from config import settings
+from model.pipeline.model import build_model, CNNModel
+from config.config import settings
 from loguru import logger
 
 

@@ -4,10 +4,10 @@ import torch
 import torch.optim as optim
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, TensorDataset
-from preparation import prepare_data
-from config import settings
+from model.pipeline.preparation import prepare_data
+from config.config import settings
 from loguru import logger
-from db_model import SignMnistTrain, SignMnistTest
+from db.db_model import SignMnistTrain, SignMnistTest
 
 
 def build_model():
