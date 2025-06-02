@@ -2,7 +2,7 @@
 
 import pandas as pd
 from loguru import logger
-from config.config import engine
+from config import engine
 from sqlalchemy import select
 
 

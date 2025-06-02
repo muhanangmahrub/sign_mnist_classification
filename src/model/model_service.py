@@ -1,7 +1,7 @@
 import torch
 from pathlib import Path
 from model.pipeline.model import build_model, CNNModel
-from config.config import settings
+from config import model_settings
 from loguru import logger
 
 
@@ -15,7 +15,7 @@ class ModelService:
     def __init__(self):
         self.model = CNNModel()
 
-    def load_model(self, model_name=settings.model_name):
+    def load_model(self, model_name=model_settings.model_name):
         """
         Load the model from the specified path.
         If the model file does not exist, it will build a new model.
@@ -23,7 +23,7 @@ class ModelService:
             model_name (str): Name of the model to load.
         """
         logger.info(f"Loading model: {model_name}")
-        model_path = Path(f"{settings.model_save_path}/{model_name}")
+        model_path = Path(f"{model_settings.model_save_path}/{model_name}")
 
         if not model_path.exists():
             logger.warning(f"Model file {model_path} does not exist. \

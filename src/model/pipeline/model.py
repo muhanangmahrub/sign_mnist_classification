@@ -5,7 +5,7 @@ import torch.optim as optim
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, TensorDataset
 from model.pipeline.preparation import prepare_data
-from config.config import settings
+from config import model_settings
 from loguru import logger
 from db.db_model import SignMnistTrain, SignMnistTest
 
@@ -132,9 +132,9 @@ def train_model(train_loader, valid_loader, epochs=10, learning_rate=0.005):
 
         train_loss = running_loss/len(train_loader)
         train_acc = 100 * correct/total
-        logger.info(f"Epoch [{epoch+1}/{epochs}],\
-                    Train Loss: {train_loss:.4f},\
-                    Train Accuracy: {train_acc:.2f}%")
+        logger.info(f"Epoch [{epoch+1}/{epochs}], "
+                    f"Train Loss: {train_loss:.4f}, "
+                    f"Train Accuracy: {train_acc:.2f}%")
 
         model.eval()
         val_loss = 0
@@ -153,8 +153,9 @@ def train_model(train_loader, valid_loader, epochs=10, learning_rate=0.005):
 
         val_loss = val_loss/len(valid_loader)
         val_acc = 100*correct/total
-        logger.info(f"Epoch [{epoch+1}/{epochs}], Val Loss: {val_loss:.4f},\
-                    Val Accuracy: {val_acc:.2f}%")
+        logger.info(f"Epoch [{epoch+1}/{epochs}], "
+                    f"Val Loss: {val_loss:.4f}, "
+                    f"Val Accuracy: {val_acc:.2f}%")
 
         history['train_loss'].append(train_loss)
         history['val_loss'].append(val_loss)
@@ -193,7 +194,7 @@ def evaluate_model(model, test_loader):
 
 
 def save_model(model,
-               file_path=f'{settings.model_save_path}/{settings.model_name}'):
+               file_path=f'{model_settings.model_save_path}/{model_settings.model_name}'):
     """
     Saves the trained model to a file.
     """
