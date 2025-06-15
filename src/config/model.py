@@ -13,7 +13,6 @@ class ModelSettings(BaseSettings):
 
     model_save_path: DirectoryPath
     model_name: str
-   
+
 
 model_settings = ModelSettings()
-

@@ -194,7 +194,8 @@ def evaluate_model(model, test_loader):
 
 
 def save_model(model,
-               file_path=f'{model_settings.model_save_path}/{model_settings.model_name}'):
+               file_path=f'{model_settings.model_save_path}/'
+               f'{model_settings.model_name}'):
     """
     Saves the trained model to a file.
     """
