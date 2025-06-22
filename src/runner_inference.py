@@ -1,4 +1,4 @@
-from model.model_service import ModelService
+from model.model_inference import ModelInferenceService
 import torch
 from loguru import logger
 
@@ -8,7 +8,7 @@ def main():
     Main function to run the model service and make predictions.
     """
     logger.info("Starting the model service")
-    ml_svc = ModelService()
+    ml_svc = ModelInferenceService()
     ml_svc.load_model()
     test_data = torch.tensor([15, 85, 89, 91, 92, 96, 96, 100, 111, 119, 126,
                               132, 135, 141, 142, 145, 147, 149, 152, 155,

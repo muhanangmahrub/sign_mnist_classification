@@ -5,34 +5,29 @@ from config import model_settings
 from loguru import logger
 
 
-class ModelService:
-    """
-    ModelService class for loading and predicting with a CNN model.
-    This class handles the loading of the model and
-    making predictions based on input parameters.
-    """
+class ModelInferenceService:
+    """ModelInferenceService class for loading and predicting with a CNN model."""
 
     def __init__(self):
         self.model = CNNModel()
+        self.model_name = model_settings.model_name
+        self.model_path = model_settings.model_save_path
 
-    def load_model(self, model_name=model_settings.model_name):
+    def load_model(self):
         """
         Load the model from the specified path.
-        If the model file does not exist, it will build a new model.
-        Args:
-            model_name (str): Name of the model to load.
+        If the model file does not exist, it will raise an error.
         """
-        logger.info(f"Loading model: {model_name}")
-        model_path = Path(f"{model_settings.model_save_path}/{model_name}")
+        logger.info(f"Loading model: {self.model_name}")
+        model_path = Path(f"{self.model_path}/{self.model_name}")
 
         if not model_path.exists():
-            logger.warning(f"Model file {model_path} does not exist. \
-                           Building a new model.")
-            build_model()
-            self.model.load_state_dict(torch.load(model_path))
-        else:
-            logger.info(f"Model file found at {model_path}. Loading model.")
-            self.model.load_state_dict(torch.load(model_path))
+            raise FileNotFoundError(
+                f"Model file {model_path} does not exist. "
+                "Please ensure the model is built before loading.")
+        
+        logger.info(f"Model file found at {model_path}. Loading model.")
+        self.model.load_state_dict(torch.load(model_path))
 
     def predict(self, input_parameters):
         """
